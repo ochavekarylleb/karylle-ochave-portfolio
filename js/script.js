@@ -98,16 +98,6 @@
     const stats = $("#stats"); let done = false;
     new IntersectionObserver(([entry], observer) => { if (!entry.isIntersecting || done) return; done = true; $$('[data-count]', stats).forEach(el => { const target = Number(el.dataset.count); let current = 0; const timer = setInterval(() => { current += 1; el.textContent = current; if (current >= target) clearInterval(timer); }, 90); }); observer.disconnect(); }, { threshold: .5 }).observe(stats);
   }
-  function initForm() {
-    $("#contact-form").addEventListener("submit", event => {
-      event.preventDefault(); let valid = true;
-      ["name", "email", "subject", "message"].forEach(id => { const input = $(`#${id}`), error = $(`#${id}-error`); const badEmail = id === "email" && !/^\S+@\S+\.\S+$/.test(input.value); const message = !input.value.trim() ? "This field is required." : badEmail ? "Enter a valid email address." : ""; error.textContent = message; input.setAttribute("aria-invalid", String(Boolean(message))); if (message) valid = false; });
-      if (!valid) { $("[aria-invalid=true]").focus(); return; }
-      const form = new FormData(event.currentTarget); const subject = encodeURIComponent(form.get("subject")); const body = encodeURIComponent(`Hello Karylle,\n\n${form.get("message")}\n\nFrom: ${form.get("name")} (${form.get("email")})`);
-      $("#form-note").textContent = "Your email app is opening. Please review and send the message there."; window.location.href = `mailto:${data.personal.email}?subject=${subject}&body=${body}`;
-    });
-  }
-
   renderExperience(); renderSkills(); renderSocial(); renderCampaigns(); renderWebsites(); renderUiux(); renderValuesAndContact();
   $("#skill-filters").addEventListener("click", e => { if (!e.target.matches("button")) return; $$("button", e.currentTarget).forEach(b => b.classList.toggle("active", b === e.target)); showSkills(e.target.dataset.skill); });
   const platforms = ["All", ...new Set(data.socialAccounts.map(item => item.platform))]; $("#social-filters").innerHTML = platforms.map((name, i) => `<button type="button" class="filter-button ${i === 0 ? "active" : ""}" data-platform="${name}">${name}</button>`).join("");
@@ -118,5 +108,5 @@
   $("#uiux-tabs").addEventListener("click", e => { if (!e.target.matches("button")) return; $$("button", e.currentTarget).forEach(b => { b.classList.toggle("active", b === e.target); b.setAttribute("aria-selected", String(b === e.target)); }); setUiux(e.target.dataset.tab); });
   $("#experience-list").addEventListener("click", e => { const button = e.target.closest("button"); if (!button) return; const panel = document.getElementById(button.getAttribute("aria-controls")); const open = button.getAttribute("aria-expanded") === "true"; button.setAttribute("aria-expanded", String(!open)); panel.hidden = open; });
   $(".back-top").addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-  $("#year").textContent = new Date().getFullYear(); initNavigation(); initCounters(); initForm(); observeReveals();
+  $("#year").textContent = new Date().getFullYear(); initNavigation(); initCounters(); observeReveals();
 })();

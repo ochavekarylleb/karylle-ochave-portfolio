@@ -1,6 +1,6 @@
 # Karylle Ochave Portfolio
 
-A responsive, one-page editorial portfolio for Karylle B. Ochave. The site uses semantic HTML, modern CSS, and vanilla JavaScript, with no build step or backend.
+A responsive, one-page editorial portfolio for Karylle B. Ochave. The site uses semantic HTML, modern CSS, and vanilla JavaScript, with no build step or backend. Contact calls to action open a direct WhatsApp conversation.
 
 Recommended public URL: `karylle-ochave-portfolio` (for example, `username.github.io/karylle-ochave-portfolio`). This is more professional and searchable than a generic “Karylle portfolio” slug.
 
@@ -44,6 +44,6 @@ No absolute asset paths are used, so the site works from a repository subdirecto
 
 Import the GitHub repository into Vercel or Netlify. Use the repository root as the site directory and leave the build command empty. Both services provide a free temporary domain. A custom domain can be connected later from the hosting provider’s domain settings after updating the domain’s DNS records.
 
-## Contact form limitation
+## Contact
 
-The form validates entries and opens a pre-addressed draft in the visitor’s email application. It does not send or store messages. Direct in-page submission requires a form service such as Formspree, Netlify Forms, or a custom backend plus a privacy review.
+Conversation buttons use Karylle's `wa.me` link to open WhatsApp directly. Update the WhatsApp URL in `index.html` if the contact number changes.
