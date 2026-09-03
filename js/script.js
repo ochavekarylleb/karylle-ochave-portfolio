@@ -27,7 +27,7 @@
   function renderSocial(filter = "All") {
     const accounts = filter === "All" ? data.socialAccounts : data.socialAccounts.filter(item => item.platform === filter);
     $("#social-grid").innerHTML = accounts.map((item, index) => `<article class="work-card reveal">
-      <a class="work-art social-preview" href="${item.url}" target="_blank" rel="noopener" aria-label="Open ${item.name} on ${item.platform}"><img src="${item.image}" alt="${item.name} ${item.platform} profile preview" width="736" height="1600" loading="lazy"></a>
+      <a class="work-art social-preview" href="${item.url}" target="_blank" rel="noopener" aria-label="Open ${item.name} on ${item.platform}"><img src="${item.image}" alt="${item.name} ${item.platform} profile preview" width="1206" height="900" loading="lazy"></a>
       <div class="work-card-copy"><div><span class="badge">${item.platform}</span><span class="industry">${item.industry}</span></div><h3>${item.name}</h3><p>${item.role}</p><a class="text-link" href="${item.url}" target="_blank" rel="noopener">View account <span aria-hidden="true">↗</span></a></div>
     </article>`).join("");
     observeReveals();
