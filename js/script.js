@@ -28,31 +28,24 @@
     const accounts = filter === "All" ? data.socialAccounts : data.socialAccounts.filter(item => item.platform === filter);
     $("#social-grid").innerHTML = accounts.map((item, index) => `<article class="work-card reveal">
       <div class="work-art theme-${item.theme}"><span>${item.platform.slice(0, 2).toUpperCase()}</span><p>Project visual</p></div>
-      <div class="work-card-copy"><div><span class="badge">${item.platform}</span><span class="industry">${item.industry}</span></div><h3>${item.name}</h3><p>${item.role}</p><button class="case-link" type="button" data-modal-type="social" data-modal-index="${data.socialAccounts.indexOf(item)}">View case study <span aria-hidden="true">↗</span></button></div>
+      <div class="work-card-copy"><div><span class="badge">${item.platform}</span><span class="industry">${item.industry}</span></div><h3>${item.name}</h3><p>${item.role}</p></div>
     </article>`).join("");
     observeReveals();
   }
 
   function renderCampaigns() {
     $("#campaign-process").innerHTML = data.process.map((step, i) => `<div><span>${String(i + 1).padStart(2, "0")}</span><p>${step}</p></div>`).join("");
-    $("#campaign-grid").innerHTML = data.campaigns.map((item, i) => `<article class="campaign-card reveal"><span>Case study ${String(i + 1).padStart(2, "0")}</span><h3>${item.title}</h3><p>${item.industry}</p><hr><p>${item.objective}</p><button class="case-link" type="button" data-modal-type="campaign" data-modal-index="${i}">Open campaign <span aria-hidden="true">↗</span></button></article>`).join("");
+    $("#campaign-grid").innerHTML = data.campaigns.map((item, i) => `<article class="campaign-card reveal"><span>Campaign ${String(i + 1).padStart(2, "0")}</span><h3>${item.title}</h3><p>${item.industry}</p><hr><p>${item.objective}</p></article>`).join("");
   }
 
   function renderWebsites() {
     $("#website-grid").innerHTML = data.websites.map((item, i) => `<article class="website-card reveal">
-      <div class="browser"><div class="browser-bar"><i></i><i></i><i></i></div><div class="browser-screen variant-${i + 1}"><span>${String(i + 1).padStart(2, "0")}</span><strong>${item.title}</strong><small>Website preview</small></div></div>
-      <p>${item.client}</p><h3>${item.title}</h3><div class="tags">${item.tools.map(tool => `<span>${tool}</span>`).join("")}</div><div class="project-actions"><a class="button button-dark" href="${item.url}" target="_blank" rel="noopener">Live website <span aria-hidden="true">↗</span></a><button class="button button-outline" type="button" data-modal-type="website" data-modal-index="${i}">View case study</button></div>
+      <a class="browser website-preview" href="${item.url}" target="_blank" rel="noopener" aria-label="Open ${item.title} website"><div class="browser-bar"><i></i><i></i><i></i></div><img src="${item.preview}" alt="Homepage preview of ${item.title}" width="1600" height="871" loading="lazy"></a>
+      <p>${item.client}</p><h3>${item.title}</h3><div class="tags">${item.tools.map(tool => `<span>${tool}</span>`).join("")}</div><div class="project-actions"><a class="button button-dark" href="${item.url}" target="_blank" rel="noopener">Live website <span aria-hidden="true">↗</span></a></div>
     </article>`).join("");
   }
 
   function renderUiux() {
-    const names = Object.keys(data.uiux);
-    $("#uiux-tabs").innerHTML = names.map((name, i) => `<button type="button" role="tab" aria-selected="${i === 0}" class="${i === 0 ? "active" : ""}" data-tab="${name}">${name}</button>`).join("");
-    setUiux(names[0]);
-  }
-  function setUiux(name) {
-    const item = data.uiux[name];
-    $("#uiux-panel").innerHTML = `<span>${name}</span><h4>${item.title}</h4><p>${item.text}</p>`;
     const screens = [
       { src: "assets/projects/adaptiv-alert-dashboard.png", alt: "Adaptiv Health patient dashboard showing a health alert and vital readings" },
       { src: "assets/projects/adaptiv-health-insights.png", alt: "Adaptiv Health insights screen showing health score, AI risk, and current vitals" },
@@ -66,26 +59,6 @@
     const links = Object.entries(data.socials).map(([name, href]) => `<a href="${href}" ${href !== "#" ? "target=\"_blank\" rel=\"noopener\"" : ""}>${name}</a>`).join("");
     $("#contact-details").innerHTML = `<a href="mailto:${data.personal.email}">${data.personal.email}</a><a href="tel:${data.personal.phone.replace(/\s/g, "")}">${data.personal.phone}</a><p>${data.personal.location}</p><div class="social-links">${links}</div><a class="text-link" href="${data.personal.resume}" download>Download résumé ↓</a>`;
   }
-
-  const modal = $("#project-modal");
-  let modalTrigger = null;
-  function openModal(type, index, trigger) {
-    modalTrigger = trigger;
-    let item, label, html;
-    if (type === "website") {
-      item = data.websites[index]; label = item.client;
-      html = `<p class="modal-lead">${item.summary}</p><dl><div><dt>My role</dt><dd>${item.role}</dd></div><div><dt>Challenge</dt><dd>${item.challenge}</dd></div><div><dt>Solution</dt><dd>${item.solution}</dd></div><div><dt>Result</dt><dd>${item.result}</dd></div></dl><a class="button button-dark" href="${item.url}" target="_blank" rel="noopener">Visit live website <span aria-hidden="true">↗</span></a>`;
-    } else if (type === "campaign") {
-      item = data.campaigns[index]; label = item.industry;
-      html = `<p class="modal-lead">${item.objective}</p><dl><div><dt>Creators</dt><dd>${item.creators}</dd></div><div><dt>Deliverables</dt><dd>${item.deliverables}</dd></div><div><dt>Result</dt><dd>${item.result}</dd></div></dl>`;
-    } else {
-      item = data.socialAccounts[index]; label = `${item.platform} · ${item.industry}`;
-      html = `<p class="modal-lead">Use this case study to show the account objective, content examples, responsibilities, and reporting.</p><dl><div><dt>My role</dt><dd>${item.role}</dd></div><div><dt>Results</dt><dd>${item.result}</dd></div><div><dt>Account link</dt><dd>Add verified public URL</dd></div></dl>`;
-    }
-    $("#modal-label").textContent = label; $("#modal-title").textContent = item.title || item.name; $("#modal-content").innerHTML = html;
-    modal.showModal(); $(".modal-close", modal).focus();
-  }
-  function closeModal() { modal.close(); if (modalTrigger) modalTrigger.focus(); }
 
   function observeReveals() {
     const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("visible"); observer.unobserve(entry.target); } }), { threshold: 0.12 });
@@ -107,10 +80,6 @@
   $("#skill-filters").addEventListener("click", e => { if (!e.target.matches("button")) return; $$("button", e.currentTarget).forEach(b => b.classList.toggle("active", b === e.target)); showSkills(e.target.dataset.skill); });
   const platforms = ["All", ...new Set(data.socialAccounts.map(item => item.platform))]; $("#social-filters").innerHTML = platforms.map((name, i) => `<button type="button" class="filter-button ${i === 0 ? "active" : ""}" data-platform="${name}">${name}</button>`).join("");
   $("#social-filters").addEventListener("click", e => { if (!e.target.matches("button")) return; $$("button", e.currentTarget).forEach(b => b.classList.toggle("active", b === e.target)); renderSocial(e.target.dataset.platform); });
-  document.addEventListener("click", e => { const trigger = e.target.closest("[data-modal-type]"); if (trigger) openModal(trigger.dataset.modalType, Number(trigger.dataset.modalIndex), trigger); });
-  $(".modal-close").addEventListener("click", closeModal); modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
-  modal.addEventListener("close", () => { if (modalTrigger && document.activeElement !== modalTrigger) modalTrigger.focus(); });
-  $("#uiux-tabs").addEventListener("click", e => { if (!e.target.matches("button")) return; $$("button", e.currentTarget).forEach(b => { b.classList.toggle("active", b === e.target); b.setAttribute("aria-selected", String(b === e.target)); }); setUiux(e.target.dataset.tab); });
   $("#experience-list").addEventListener("click", e => { const button = e.target.closest("button"); if (!button) return; const panel = document.getElementById(button.getAttribute("aria-controls")); const open = button.getAttribute("aria-expanded") === "true"; button.setAttribute("aria-expanded", String(!open)); panel.hidden = open; });
   $(".back-top").addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
   $("#year").textContent = new Date().getFullYear(); initNavigation(); initCounters(); observeReveals();
