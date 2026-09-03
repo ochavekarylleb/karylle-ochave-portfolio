@@ -14,7 +14,7 @@ Open this folder in VS Code, install the free Live Server extension, then right-
 - `css/style.css` contains the complete responsive design system.
 - `js/content.js` contains the frequently edited portfolio details.
 - `js/script.js` renders content and powers navigation, filters, dialogs, tabs, counters, and form validation.
-- `assets/Karylle-Ochave-Resume.pdf` is the downloadable resume.
+- `assets/Karylle-Ochave-Resume.pdf` is retained as a private project asset but is not linked from the website.
 - `assets/images/` is for portrait, project, and social preview images.
 - `assets/projects/` is for website and app screenshots.
 - `assets/references/` holds design references only; these are not displayed on the site.
@@ -28,7 +28,7 @@ To replace the portrait placeholders, add an optimized image to `assets/images/`
 
 To add portfolio work, duplicate an item inside `socialAccounts`, `campaigns`, or `websites` in `js/content.js`. Keep the same fields. Use only approved brand names, public links, and verified metrics.
 
-Replace every `#` in the `socials` object with the complete public profile URL. Replace `assets/Karylle-Ochave-Resume.pdf` whenever the resume changes, keeping the filename stable.
+Contact information can be updated in the `personal` object inside `js/content.js`. Personal social-profile links and résumé downloads are intentionally not displayed.
 
 ## Publish free with GitHub Pages
 

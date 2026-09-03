@@ -5,8 +5,7 @@ window.portfolioData = {
     role: "Business Information Systems Graduate",
     location: "Al Nahda, Dubai, United Arab Emirates",
     email: "ochavekarylleb@gmail.com",
-    phone: "+971 52 480 6236",
-    resume: "assets/Karylle-Ochave-Resume.pdf"
+    phone: "+971 52 480 6236"
   },
   education: [{
     type: "Education", title: "Bachelor of Business in Information Systems", organization: "University of Wollongong in Dubai", location: "Dubai, United Arab Emirates", dates: "2023 - 2026", detail: "Business and technology studies focused on information systems, operations, data, and the practical application of digital tools."
@@ -65,6 +64,5 @@ window.portfolioData = {
     { number: "02", title: "Connected thinking", text: "I understand how content, branding, websites, systems, and user experience work together." },
     { number: "03", title: "Detail in delivery", text: "I care about consistency, usability, communication, and thoughtful execution." },
     { number: "04", title: "Business-minded design", text: "I create digital experiences to support meaningful outcomes, not appearance alone." }
-  ],
-  socials: { LinkedIn: "#", Instagram: "#", Facebook: "#", TikTok: "#", Behance: "#" }
+  ]
 };

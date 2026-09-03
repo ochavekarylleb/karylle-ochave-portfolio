@@ -56,8 +56,7 @@
 
   function renderValuesAndContact() {
     $("#values-grid").innerHTML = data.values.map(item => `<article class="value reveal"><span>${item.number}</span><h3>${item.title}</h3><p>${item.text}</p></article>`).join("");
-    const links = Object.entries(data.socials).map(([name, href]) => `<a href="${href}" ${href !== "#" ? "target=\"_blank\" rel=\"noopener\"" : ""}>${name}</a>`).join("");
-    $("#contact-details").innerHTML = `<a href="mailto:${data.personal.email}">${data.personal.email}</a><a href="tel:${data.personal.phone.replace(/\s/g, "")}">${data.personal.phone}</a><p>${data.personal.location}</p><div class="social-links">${links}</div><a class="text-link" href="${data.personal.resume}" download>Download résumé ↓</a>`;
+    $("#contact-details").innerHTML = `<a href="mailto:${data.personal.email}">${data.personal.email}</a><a href="tel:${data.personal.phone.replace(/\s/g, "")}">${data.personal.phone}</a><p>${data.personal.location}</p>`;
   }
 
   function observeReveals() {
