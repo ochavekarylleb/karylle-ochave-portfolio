@@ -29,18 +29,17 @@ window.portfolioData = {
     "Tools": ["VS Code", "GitHub", "Microsoft 365", "Google Workspace", "CRM Systems"]
   },
   socialAccounts: [
-    { platform: "Instagram", name: "Add Instagram account", industry: "Add industry", role: "Strategy · Content · Community", result: "Add verified campaign result", theme: "rose" },
-    { platform: "Facebook", name: "Add Facebook account", industry: "Add industry", role: "Planning · Publishing · Reporting", result: "Add verified campaign result", theme: "ink" },
-    { platform: "TikTok", name: "Add TikTok account", industry: "Add industry", role: "Concepts · Short-form video", result: "Add verified campaign result", theme: "lime" },
-    { platform: "LinkedIn", name: "Add LinkedIn account", industry: "Add industry", role: "Thought leadership · Brand voice", result: "Add verified campaign result", theme: "blue" },
-    { platform: "Instagram", name: "Je Te Beau Inc.", industry: "Add approved industry", role: "Social Media Manager", result: "Add verified role details and results", theme: "coral" },
-    { platform: "Facebook", name: "SBH Construction Group", industry: "Construction", role: "Social Media Manager", result: "Add verified role details and results", theme: "stone" }
+    { platform: "Instagram", name: "Keeta UAE", industry: "Food Delivery · UAE", role: "Social media portfolio", url: "https://www.instagram.com/uae.keeta", image: "assets/projects/keeta-instagram.jpeg" },
+    { platform: "Instagram", name: "Seline Clinic Dubai", industry: "Aesthetics & Wellness · Dubai", role: "Social media portfolio", url: "https://www.instagram.com/seline.dubai", image: "assets/projects/seline-instagram.jpeg" },
+    { platform: "Instagram", name: "Keventers UAE", industry: "Food & Beverage · UAE", role: "Social media portfolio", url: "https://www.instagram.com/keventers_uae", image: "assets/projects/keventers-instagram.jpeg" },
+    { platform: "Instagram", name: "Innermost", industry: "Health & Wellness · Global", role: "Social media portfolio", url: "https://www.instagram.com/innermostglobal", image: "assets/projects/innermost-instagram.jpeg" },
+    { platform: "Facebook", name: "Guangdong Main Branch", industry: "Restaurant · Batangas, Philippines", role: "Social media portfolio", url: "https://www.facebook.com/guangdongmasarap/", image: "assets/projects/guangdong-facebook.jpeg" }
   ],
   process: ["Campaign brief", "Influencer research", "Outreach & negotiation", "Content coordination", "Publishing", "Monitoring & reporting"],
   campaigns: [
-    { title: "Add campaign name", industry: "Brand / industry", objective: "Add the approved campaign objective and target audience.", creators: "Add creator count", deliverables: "Add deliverables and platforms", result: "Add verified results and key learning" },
-    { title: "Add campaign name", industry: "Brand / industry", objective: "Add the approved campaign objective and target audience.", creators: "Add creator count", deliverables: "Add deliverables and platforms", result: "Add verified results and key learning" },
-    { title: "Add campaign name", industry: "Brand / industry", objective: "Add the approved campaign objective and target audience.", creators: "Add creator count", deliverables: "Add deliverables and platforms", result: "Add verified results and key learning" }
+    { title: "Keeta Week Campaign", industry: "Keeta UAE · Instagram Reel", objective: "A promotional social campaign featuring an interactive spin-to-win concept.", url: "https://www.instagram.com/reel/DUn16Npj4xj/?igsi=OGh6eTFtMDI5Nmpk", image: "assets/projects/keeta-week-campaign.jpeg" },
+    { title: "Keeta Weekends", industry: "Keeta UAE · Instagram Reel", objective: "A branded weekend campaign built around discovery, lifestyle, and food-delivery moments.", url: "https://www.instagram.com/reel/DTmkYz4j9s5/?igsi=YXA2MmF6d3lwemNj", image: "assets/projects/keeta-weekends-campaign.jpeg" },
+    { title: "Keeta Golden Week", industry: "Keeta UAE · Instagram Reel", objective: "A Golden Week promotional reel designed to introduce the campaign and build anticipation.", url: "https://www.instagram.com/reel/DRY-4erEzHt/?igsi=MWtkczh5Z3Q1bGpiNQ==", image: "assets/projects/keeta-golden-week-campaign.jpeg" }
   ],
   websites: [
     { title: "SBH Construction Inc.", client: "Construction · California, United States", url: "https://sbhconstructioninc.com", preview: "assets/projects/sbh-construction-preview.png", summary: "A digital presence for SBH Construction Inc. in California.", role: "Web Design & Development", tools: ["Web Design", "Development", "Responsive Design"], challenge: "Present the company's construction services clearly and professionally online.", solution: "A structured, responsive company website designed for clear service discovery and enquiries.", result: "Live website available to view." },

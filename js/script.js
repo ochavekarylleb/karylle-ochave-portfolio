@@ -27,15 +27,15 @@
   function renderSocial(filter = "All") {
     const accounts = filter === "All" ? data.socialAccounts : data.socialAccounts.filter(item => item.platform === filter);
     $("#social-grid").innerHTML = accounts.map((item, index) => `<article class="work-card reveal">
-      <div class="work-art theme-${item.theme}"><span>${item.platform.slice(0, 2).toUpperCase()}</span><p>Project visual</p></div>
-      <div class="work-card-copy"><div><span class="badge">${item.platform}</span><span class="industry">${item.industry}</span></div><h3>${item.name}</h3><p>${item.role}</p></div>
+      <a class="work-art social-preview" href="${item.url}" target="_blank" rel="noopener" aria-label="Open ${item.name} on ${item.platform}"><img src="${item.image}" alt="${item.name} ${item.platform} profile preview" width="736" height="1600" loading="lazy"></a>
+      <div class="work-card-copy"><div><span class="badge">${item.platform}</span><span class="industry">${item.industry}</span></div><h3>${item.name}</h3><p>${item.role}</p><a class="text-link" href="${item.url}" target="_blank" rel="noopener">View account <span aria-hidden="true">↗</span></a></div>
     </article>`).join("");
     observeReveals();
   }
 
   function renderCampaigns() {
     $("#campaign-process").innerHTML = data.process.map((step, i) => `<div><span>${String(i + 1).padStart(2, "0")}</span><p>${step}</p></div>`).join("");
-    $("#campaign-grid").innerHTML = data.campaigns.map((item, i) => `<article class="campaign-card reveal"><span>Campaign ${String(i + 1).padStart(2, "0")}</span><h3>${item.title}</h3><p>${item.industry}</p><hr><p>${item.objective}</p></article>`).join("");
+    $("#campaign-grid").innerHTML = data.campaigns.map((item, i) => `<article class="campaign-card reveal"><a class="campaign-preview" href="${item.url}" target="_blank" rel="noopener" aria-label="Watch ${item.title} on Instagram"><img src="${item.image}" alt="Preview of ${item.title}" width="403" height="701" loading="lazy"><span aria-hidden="true">▶</span></a><div class="campaign-copy"><span>Campaign ${String(i + 1).padStart(2, "0")}</span><h3>${item.title}</h3><p>${item.industry}</p><hr><p>${item.objective}</p><a class="text-link" href="${item.url}" target="_blank" rel="noopener">Watch reel <span aria-hidden="true">↗</span></a></div></article>`).join("");
   }
 
   function renderWebsites() {
