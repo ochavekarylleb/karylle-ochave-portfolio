@@ -43,16 +43,22 @@ window.portfolioData = {
     { title: "Add campaign name", industry: "Brand / industry", objective: "Add the approved campaign objective and target audience.", creators: "Add creator count", deliverables: "Add deliverables and platforms", result: "Add verified results and key learning" }
   ],
   websites: [
-    { title: "Weiss Group Web Project", client: "Weiss Group · Professional services", summary: "Add the approved scope and project context from the web developer role.", role: "Web Developer", tools: ["HTML", "CSS", "JavaScript", "Responsive Design"], challenge: "Add the primary user or business challenge.", solution: "Add the approach, key decisions, and implemented solution.", result: "Add a verified result and live URL." },
-    { title: "Add Website Project", client: "Client · Industry", summary: "Add a concise project overview.", role: "Add your role", tools: ["Figma", "HTML", "CSS"], challenge: "Add the challenge.", solution: "Add the solution.", result: "Add the verified result." },
-    { title: "Add Website Project", client: "Client · Industry", summary: "Add a concise project overview.", role: "Add your role", tools: ["WordPress", "SEO", "Responsive Design"], challenge: "Add the challenge.", solution: "Add the solution.", result: "Add the verified result." },
-    { title: "Add Website Project", client: "Client · Industry", summary: "Add a concise project overview.", role: "Add your role", tools: ["Figma", "JavaScript", "UI/UX"], challenge: "Add the challenge.", solution: "Add the solution.", result: "Add the verified result." }
+    { title: "SBH Construction Inc.", client: "Construction · California, United States", url: "https://sbhconstructioninc.com", summary: "A digital presence for SBH Construction Inc. in California.", role: "Web Design & Development", tools: ["Web Design", "Development", "Responsive Design"], challenge: "Present the company's construction services clearly and professionally online.", solution: "A structured, responsive company website designed for clear service discovery and enquiries.", result: "Live website available to view." },
+    { title: "SB Group", client: "Business Group · California, United States", url: "https://sbgroup-inc.com", summary: "A professional company website for SB Group in California.", role: "Web Design & Development", tools: ["Web Design", "Development", "Responsive Design"], challenge: "Create a cohesive online home for the group and its business offering.", solution: "A clear corporate website with responsive layouts and focused navigation.", result: "Live website available to view." },
+    { title: "Divertex Corporation", client: "BPO & Digital Operations · Batangas, Philippines", url: "https://divertexcorp.com", summary: "A service-led website presenting Divertex's outsourcing and digital operations solutions.", role: "Web Design & Development", tools: ["Web Design", "Development", "Responsive Design"], challenge: "Organize a broad range of outsourcing, support, and digital services for growing businesses.", solution: "A conversion-focused responsive experience with service discovery, company information, and enquiry pathways.", result: "Live website available to view." },
+    { title: "Seline Clinic", client: "Aesthetic & Wellness Clinic · Dubai, UAE", url: "https://seline.ae/en", summary: "A premium digital experience for Seline Clinic's aesthetic, plastic surgery, and wellness services.", role: "Website Project", tools: ["Web Design", "UI/UX", "Responsive Design"], challenge: "Present extensive medical and wellness services in an elegant, approachable digital environment.", solution: "A polished, visual website experience that supports service exploration and appointment booking.", result: "Live website available to view." }
   ],
+  uiuxProject: {
+    title: "Adaptiv Health",
+    subtitle: "AI-Based Cardiovascular Monitoring",
+    location: "University of Wollongong in Dubai",
+    url: "https://dashboard-adaptivhealthuowd.xyz/login"
+  },
   uiux: {
-    Research: { title: "Understand", text: "Add the user problem, business goal, target users, research method, and the key insight that shaped the product." },
-    Wireframes: { title: "Structure", text: "Add the user flow, early sketches, wireframe decisions, and how feedback improved the information architecture." },
-    "Final UI": { title: "Refine", text: "Add the visual system, accessibility choices, component logic, and final interface screenshots." },
-    Prototype: { title: "Validate", text: "Add prototype details, usability test method, observations, iterations, and the final outcome." }
+    Research: { title: "Understand", text: "Adaptiv Health explores a clear digital access experience for AI-based cardiovascular monitoring, serving both patients and doctors through role-specific portals." },
+    Wireframes: { title: "Structure", text: "The access flow separates patient monitoring from the doctor dashboard at the first decision point, reducing ambiguity and helping each user reach the correct experience quickly." },
+    "Final UI": { title: "Refine", text: "A focused red and soft-white visual system supports the healthcare context, with strong action hierarchy, concise supporting copy, and clear medical disclaimer messaging." },
+    Prototype: { title: "Validate", text: "The live Adaptiv Health dashboard demonstrates the access flow and provides a working foundation for reviewing the patient and doctor experiences." }
   },
   values: [
     { number: "01", title: "Strategy & creativity", text: "I connect creative execution to clear business and campaign objectives." },

@@ -41,7 +41,7 @@
   function renderWebsites() {
     $("#website-grid").innerHTML = data.websites.map((item, i) => `<article class="website-card reveal">
       <div class="browser"><div class="browser-bar"><i></i><i></i><i></i></div><div class="browser-screen variant-${i + 1}"><span>${String(i + 1).padStart(2, "0")}</span><strong>${item.title}</strong><small>Website preview</small></div></div>
-      <p>${item.client}</p><h3>${item.title}</h3><div class="tags">${item.tools.map(tool => `<span>${tool}</span>`).join("")}</div><button class="button button-outline" type="button" data-modal-type="website" data-modal-index="${i}">View case study</button>
+      <p>${item.client}</p><h3>${item.title}</h3><div class="tags">${item.tools.map(tool => `<span>${tool}</span>`).join("")}</div><div class="project-actions"><a class="button button-dark" href="${item.url}" target="_blank" rel="noopener">Live website <span aria-hidden="true">↗</span></a><button class="button button-outline" type="button" data-modal-type="website" data-modal-index="${i}">View case study</button></div>
     </article>`).join("");
   }
 
@@ -53,7 +53,12 @@
   function setUiux(name) {
     const item = data.uiux[name];
     $("#uiux-panel").innerHTML = `<span>${name}</span><h4>${item.title}</h4><p>${item.text}</p>`;
-    $("#phone-stage").innerHTML = [1, 2, 3].map((n) => `<div class="phone phone-${n}"><div class="notch"></div><div class="phone-screen"><span>${name}</span><strong>${n === 1 ? item.title : "Add screen"}</strong><div></div><div></div><small>Project image ${n}</small></div></div>`).join("");
+    const screens = [
+      { src: "assets/projects/adaptiv-alert-dashboard.png", alt: "Adaptiv Health patient dashboard showing a health alert and vital readings" },
+      { src: "assets/projects/adaptiv-health-insights.png", alt: "Adaptiv Health insights screen showing health score, AI risk, and current vitals" },
+      { src: "assets/projects/adaptiv-access-portal.png", alt: "Adaptiv Health access portal with patient app and doctor dashboard options" }
+    ];
+    $("#phone-stage").innerHTML = screens.map((screen, index) => `<div class="phone phone-${index + 1}"><div class="notch"></div><img src="${screen.src}" alt="${screen.alt}" width="399" height="864" loading="lazy"></div>`).join("");
   }
 
   function renderValuesAndContact() {
@@ -69,7 +74,7 @@
     let item, label, html;
     if (type === "website") {
       item = data.websites[index]; label = item.client;
-      html = `<p class="modal-lead">${item.summary}</p><dl><div><dt>My role</dt><dd>${item.role}</dd></div><div><dt>Challenge</dt><dd>${item.challenge}</dd></div><div><dt>Solution</dt><dd>${item.solution}</dd></div><div><dt>Result</dt><dd>${item.result}</dd></div></dl>`;
+      html = `<p class="modal-lead">${item.summary}</p><dl><div><dt>My role</dt><dd>${item.role}</dd></div><div><dt>Challenge</dt><dd>${item.challenge}</dd></div><div><dt>Solution</dt><dd>${item.solution}</dd></div><div><dt>Result</dt><dd>${item.result}</dd></div></dl><a class="button button-dark" href="${item.url}" target="_blank" rel="noopener">Visit live website <span aria-hidden="true">↗</span></a>`;
     } else if (type === "campaign") {
       item = data.campaigns[index]; label = item.industry;
       html = `<p class="modal-lead">${item.objective}</p><dl><div><dt>Creators</dt><dd>${item.creators}</dd></div><div><dt>Deliverables</dt><dd>${item.deliverables}</dd></div><div><dt>Result</dt><dd>${item.result}</dd></div></dl>`;
