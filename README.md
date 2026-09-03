@@ -15,6 +15,7 @@ Open this folder in VS Code, install the free Live Server extension, then right-
 - `js/content.js` contains the frequently edited portfolio details.
 - `js/script.js` renders content and powers navigation, filters, dialogs, tabs, counters, and form validation.
 - `assets/Karylle-Ochave-Resume.pdf` is retained as a private project asset but is not linked from the website.
+- `assets/Karylle-Ochave-BBIS-Diploma.pdf` is the diploma displayed in the Education section.
 - `assets/images/` is for portrait, project, and social preview images.
 - `assets/projects/` is for website and app screenshots.
 - `assets/references/` holds design references only; these are not displayed on the site.
